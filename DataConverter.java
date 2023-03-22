@@ -184,7 +184,7 @@ public class DataConverter {
 		Gson test = new GsonBuilder().setPrettyPrinting().create();
 		test.toJson(invoiceData);
 		String prettyJson = test.toJson(invoiceData);
-		File w = new File("data/Stores.json");
+		File w = new File("data/Invoices.json");
 		PrintWriter pw;
 		try {
 			pw = new PrintWriter(w);
@@ -196,7 +196,7 @@ public class DataConverter {
 		return invoiceData;
 	}
 	public static String loadItems(){
-		final String invoiceItems = "data/Items.csv";
+		final String invoiceItems = "data/InvoiceItems.csv";
 		List<Item> items= new ArrayList<>();
 		String line = null;
 		File f = new File(invoiceItems);
@@ -208,24 +208,18 @@ public class DataConverter {
 				if(!line.trim().trim().isEmpty()) {
 					Item item = null; 
 					String tokens[] = line.split(",");
+					String invoiceCode3 = tokens[0];
+					String itemCode = tokens[1];
 					if (tokens[2] != "P" || tokens[2] != "L") {
-						String invoiceCode = tokens[0];
-						String itemCode = tokens[1];
 						String quantity = tokens [2];
 					} 
 					else if (tokens[2] == "L") {
-						String invoiceCode = tokens[0];
-						String itemCode = tokens[1];
-						String itemType = tokens[2];
-						String quantity = tokens [3];
-						String leaseStart = tokens[4];
-						String leaseEnd = tokens[5];
+						String itemType = tokens[3];
+						String leaseStart = tokens[5];
+						String leaseEnd = tokens[6];
 					}
 					else if (tokens[2] == "P") { 
-						String invoiceCode = tokens[0];
-						String itemCode = tokens[1];
-						String itemType = tokens[2];
-						String quantity = tokens [3];
+						String quantityPurchased = tokens[3];
 					} 
 				}
 				s.close();
@@ -237,7 +231,7 @@ public class DataConverter {
 		Gson test = new GsonBuilder().setPrettyPrinting().create();
 		test.toJson(invoiceItems);
 		String prettyJson = test.toJson(invoiceItems);
-		File w = new File("data/Stores.json");
+		File w = new File("data/InvoiceItems.json");
 		PrintWriter pw;
 		try {
 			pw = new PrintWriter(w);
