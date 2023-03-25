@@ -201,14 +201,14 @@ public class DataConverter {
 		String line = null;
 		File f = new File(invoiceItems);
 		try {
-			Scanner s = new Scanner(invoiceItems);
+			Scanner s = new Scanner(f);
 			int numItems = Integer.parseInt(s.nextLine());
 			for(int i = 0; i < numItems; i++) {
 				line = s.nextLine();
 				if(!line.trim().trim().isEmpty()) {
 					Item item = null; 
 					String tokens[] = line.split(",");
-					String invoiceCode3 = tokens[0];
+					String invoiceCode = tokens[0];
 					String itemCode = tokens[1];
 					if (tokens[2] != "P" || tokens[2] != "L") {
 						String quantity = tokens [2];
@@ -222,8 +222,8 @@ public class DataConverter {
 						String quantityPurchased = tokens[3];
 					} 
 				}
-				s.close();
 			}
+			s.close();
 		}
 		catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
