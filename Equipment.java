@@ -9,6 +9,8 @@ package com.fmt;
  */
 public class Equipment extends Item {
 	
+	protected String code;
+	protected String name;
 	protected String model;
 	
 	// new constructor 

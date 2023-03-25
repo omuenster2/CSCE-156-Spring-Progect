@@ -5,8 +5,12 @@ public class Purchased extends Equipment{
 	private double flatRate;
 
 	public Purchased(Equipment e, double flatRate) {
-		super(e.code, e.name, e.equipment, e.model);
+		super(e.code, e.name, e.model);
 		this.flatRate = flatRate;
+	}
+
+	public double getFlatRate() {
+		return flatRate;
 	}
 
 	@Override

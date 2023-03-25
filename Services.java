@@ -9,6 +9,10 @@ package com.fmt;
  */
 public class Services extends Item{
 	
+	
+	// new constructor
+	
+	
 	public Services(String code, String name, Item services, double hourlyRate) {
 		super(code, name);
 		this.services = services; 

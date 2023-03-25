@@ -6,19 +6,19 @@ package com.fmt;
  *
  */
 public class Product extends Item {
+	protected String productCode;
 	protected String unit;
 	protected double unitPrice;
 
+	
+	
 	// new constructor 
+	public Item(Item i)
 	
 	public Product(String unit, double unitPrice) {
 		super();
 		this.unit = unit;
 		this.unitPrice = unitPrice;
-	}
-
-	public Item getProduct() {
-		return product;
 	}
 
 	public String Unit() {
